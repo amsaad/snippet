@@ -1,0 +1,30 @@
+<style>
+	.corner {
+		border-radius: 5px;
+	}
+</style>
+<div class="p-1 bg-primary corner" style="width:252px;">
+	<table>
+		<tr>
+			<td id="CaptchaImage">
+				<div>
+					@*<img src="@ViewBag.b64Img" alt="Captcha-Image" id="reCaptchaImg" class="corner" />*@
+					<img src="@Url.Content("~/Services/captchaHandler.ashx")" alt="Captcha-Image" id="cImg" class="corner"  />
+				</div>
+			</td>
+			<td style="height:70px;">
+				@*@Ajax.ActionLink("Reload", "reloadCaptcha","Home", new AjaxOptions { UpdateTargetId = "CaptchaImage", AllowCache=false })*@
+				<div id="btnReload" class="btn btn-warning align-items-stretch h-100" disabled>
+					<i class="fa fa-refresh  h-100 text-muted" ></i>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div style="background-color: cornsilk;border: 1px solid cornsilk;" class="mt-1 p-2 corner">
+					<input type="text" name="captcha" value="" class="form-control" style="font-size:18px;letter-spacing:2px;" />
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
